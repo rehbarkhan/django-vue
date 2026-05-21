@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="{{message.tags}}">{{message}}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="id_username">Username</label>
+            <input type="text" name="username" id="id_username" autocomplete="off" required autofocus value="{{username}}">
+        </div>
+        <div>
+            <label for="id_password">Password</label>
+            <input type="password" name="password" id="id_password" autocomplete="off" required value="{{password}}">
+        </div>
+        <a href="">Forget password ?</a>
+        <button type="submit">Login</button>
+    </form>
+    
+</body>
+</html>
